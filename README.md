@@ -1,4 +1,5 @@
 # vagrant-examples
 ## Exemplos de Vagrantfile de aulas
 
-### Fabio Gomes Rocha
+### Criado por Fabio Gomes Rocha
+Os exemplos apresentados são organizados por pastas.
