@@ -1,0 +1,76 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config| 
+    config.vm.define "database" do |database|
+      database.vm.box = "ubuntu/focal64"
+      database.vm.network "private_network", ip: "10.0.0.23"
+      database.vm.provider "virtualbox" do |vb|
+        vb.memory = "512"
+        vb.cpus = 1
+      end
+      database.vm.provision "shell", inline: <<-SHELL
+        apt-get update
+        apt-get install -y mariadb-server
+        systemctl start mariadb.service
+      SHELL
+    end
+    config.vm.define "ml" do |ml|
+        ml.vm.box = "ubuntu/focal64"
+        ml.vm.network "private_network", ip: "10.0.0.22"
+        ml.vm.provider "virtualbox" do |vb|
+          vb.memory = "256"
+          vb.cpus = 1
+        end
+    end
+    config.vm.define "ocr" do |ocr|
+        ocr.vm.box = "ubuntu/focal64"
+        ocr.vm.network "private_network", ip: "10.0.0.22"
+        ocr.vm.provider "virtualbox" do |vb|
+          vb.memory = "1024"
+          vb.cpus = 1
+        end
+        ocr.vm.provision "shell", inline: <<-SHELL
+          apt-get update
+          apt-get install -y tesseract-ocr
+        SHELL
+    end
+    config.vm.define "backend" do |backend|
+        backend.vm.box = "ubuntu/focal64"
+        backend.vm.network "private_network", ip: "10.0.0.22"
+        backend.vm.provider "virtualbox" do |vb|
+          vb.memory = "256"
+          vb.cpus = 1
+        end
+        backend.vm.provision "shell", inline: <<-SHELL
+          apt-get update
+          apt-get install -y python3-pip
+        SHELL
+      end
+      config.vm.define "frontend" do |frontend|
+        frontend.vm.box = "ubuntu/focal64"
+        frontend.vm.network "private_network", ip: "10.0.0.21"
+        frontend.vm.provider "virtualbox" do |vb|
+          vb.memory = "512"
+          vb.cpus = 1
+        end
+        frontend.vm.provision "shell", inline: <<-SHELL
+          apt-get update
+          apt-get install -y nodejs
+        SHELL
+      end
+      config.vm.define "nginx" do |nginx|
+        nginx.vm.box = "ubuntu/focal64"
+        nginx.vm.network "private_network", ip: "10.0.0.10"
+        nginx.vm.provider "virtualbox" do |vb|
+          vb.memory = "512"
+          vb.cpus = 1
+        end
+        nginx.vm.provision "shell", inline: <<-SHELL
+          apt-get update
+          apt-get install -y nginx
+          sudo ufw allow "Nginx HTTP"
+        SHELL
+      end
+  end
+  
