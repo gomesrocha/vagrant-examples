@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Vagrant Examples.md",
+                "file": "README.md.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f60e03e27b1ecb7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Vagrant Examples.md",
+                "file": "README.md.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Vagrant Examples.md",
+                "file": "README.md.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Vagrant Examples.md"
+                "file": "README.md.md"
               }
             }
           }
@@ -139,9 +152,10 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "7d04fa31341b06e9",
+  "active": "1d88398e9c20d3f5",
   "lastOpenFiles": [
-    "logo.md",
-    "Vagrant Examples.md"
+    "Untitled.md",
+    "README.md.md",
+    "logo.md"
   ]
 }
