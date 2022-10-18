@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+Vagrant.configure("2") do |config|
+  
+  config.vm.define "nodejs" do |nodejs|
+    nodejs.vm.box = "ubuntu/focal64"
+    nodejs.vm.network "private_network", ip: "10.0.0.10"
+    nodejs.vm.provider "virtualbox" do |vb|
+      vb.memory = "512"
+      vb.cpus = 1
+    end
+  end
+  config.vm.define "windows10" do |win10|
+    win10.vm.box = "Microsoft/EdgeOnWindows10"
+    win10.vm.network "private_network", ip: "10.0.0.20"
+  end
+ 
+end
